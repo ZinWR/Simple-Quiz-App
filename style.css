@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Define Roots */
+:root {
+  --hue-neutral: 200; /* Using HSL - Hue,Saturation, Light --> blue */
+  --hue-wrong: 0; /* red */
+  --hue-correct: 145; /* green */
+}
+
+body {
+  --hue: var(--hue-neutral);
+  width: 100vw; /* vw = view width --> Cover entire screen */
+  height: 100vh; /* vh = view height */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Make text center */
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
+}
+
+/* Change Hue for background color */
+body.correct {
+  --hue: var(--hue-correct);
+}
+body.wrong {
+  --hue: var(--hue-wrong);
+}
+.btn.correct {
+  --hue: var(--hue-correct);
+  color: black;
+}
+.btn.wrong {
+  --hue: var(--hue-wrong);
+}
+
+/* ----- */
+.container {
+  width: 800px;
+  max-width: 80%; /* To make sure content don't overflow */
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px; /* x-offset y-offset blur spread(how far out) */
+}
+
+.btn-grid {
+  display: grid;
+  /* Divide grid into 2 columns */
+  grid-template-columns: repeat(2, auto); /* auto width */
+  gap: 10px;
+  margin: 20px 0; /* 20 for top-bot 0 for left-right */
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border: 3px solid hsl(var(--hue), 100%, 30%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+}
+
+.btn:hover {
+  border-color: black;
+}
+
+.start-btn,
+.next-btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
